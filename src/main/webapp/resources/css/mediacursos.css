@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09-ago-2021, 17:57:49
+    Author     : Karina Romero
+*/
+h1,h2{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 40px;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+
+p {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    width: 80%;
+    margin: auto;
+    margin-left: 60px;
+}
+

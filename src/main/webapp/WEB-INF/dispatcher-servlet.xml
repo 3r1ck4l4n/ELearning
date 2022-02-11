@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+">
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+   
+   
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
+        <property name="mappings"> 
+            <props>
+          
+                <!--Mapeo del Login-->
+                <prop key="index.html">homeController</prop>
+                <prop key="validador.html">homeController</prop>
+                <prop key="admin.html">homeController</prop>
+                <prop key="error.html">homeController</prop>
+                <prop key="semillero.html">homeController</prop>
+                <prop key="bienvenida.html">homeController</prop>
+                <prop key="semilleroRegistro.html">homeController</prop>
+                <prop key="existe.html">homeController</prop>
+                <prop key="exito.html">homeController</prop>
+                <prop key="cerrarSession.html">homeController</prop>       
+                <prop key="regresa.html">homeController</prop>
+                <prop key="enviarCorreo.html">homeController</prop>
+                <prop key="cerrarSession.html">homeController</prop>
+                
+                <!--Mapeo de los Cursos--> 
+                <prop key="addCurso.html">cursoControler</prop>
+                <prop key="crearCurso.html">cursoControler</prop>
+                <prop key="enviarCorreo.html">homeController</prop>
+                <prop key="nuevocurso.html">cursoControler</prop>
+                <prop key="listadodecursos.html">cursoControler</prop>
+                <prop key="borrarCursos.html">cursoControler</prop>
+                <prop key="ActualizarCurso.html">cursoControler</prop>
+                <prop key="Cartas.html">cursoControler</prop>
+                <prop key="errorCurso.html">cursoControler</prop>
+                <prop key="errorCursoU.html">cursoControler</prop>          
+
+                
+                <!--Mapeo de los Modulos-->
+                <prop key="anadirmodulos.html">moduloControler</prop>
+                <prop key="actualizarmodulos.html">moduloControler</prop><!--Esta es la vista del crud de Curso si de desean agregar mas-->
+                <prop key="addModulo.html">moduloControler</prop>
+                <prop key="mediacursos.html">moduloControler</prop>
+                <prop key="ActualizarModulo.html">moduloControler</prop><!--Este es para el crud al momento de ingregar modulos-->
+                <prop key="borrarModulo.html">moduloControler</prop>
+                <prop key="primerosmodulos.html">moduloControler</prop>
+                <prop key="anadirModulos.html">moduloControler</prop>
+                
+                <!--Mapeo del Usuario-->
+                <prop key="perfilsem.html">usuarioControler</prop>
+                <prop key="ProgressBar.html">usuarioControler</prop>
+                <prop key="perfiladmin.html">usuarioControler</prop>
+                <prop key="nuevosemillero.html">usuarioControler</prop>
+                <prop key="nuevoadmin.html">usuarioControler</prop>
+                <prop key="addAdministrador.html">usuarioControler</prop>
+                <prop key="eliminarAdmin.html">usuarioControler</prop>
+                <prop key="eliminarSemillero.html">usuarioControler</prop>
+                <prop key="actualizarSemillero.html">usuarioControler</prop>
+                <prop key="actualizarAdmin.html">usuarioControler</prop>
+                <prop key="certificado.html">usuarioControler</prop>
+                <prop key="informeUsuario.html">usuarioControler</prop>
+                
+                <!--Mapeo de Archivos-->
+                <prop key="anadirarchivos.html">archivoControler</prop>
+                <prop key="addArchivos.html">archivoControler</prop>
+                <prop key="updateArchivo.html">archivoControler</prop>
+                <prop key="deleteArchivo.html">archivoControler</prop>
+                <prop key="anadirArchivos.html">archivoControler</prop>
+                <prop key="anadirNuevosarchivos.html">archivoControler</prop>
+                
+                <!--Mapeo de Cuestionario-->
+                <prop key="cuestionario.html">cuestionarioController</prop>
+                <prop key="CrearCuestionario.html">cuestionarioController</prop>
+                <prop key="ActualizarCuestionario.html">cuestionarioController</prop>
+                <prop key="EliminarCuestionario.html">cuestionarioController</prop>
+                <prop key="previewexamadmin.html">cuestionarioController</prop>
+                <prop key="examenuser.html">cuestionarioController</prop>
+                
+                <!--Mapeo de Preguntas-->
+                <prop key="CrearPreguntas.html">preguntasController</prop>
+                <prop key="ActualizarPreguntas.html">preguntasController</prop>
+                <prop key="EliminarPreguntas.html">preguntasController</prop>
+                
+                <!--Mapeo de MiCuestionario-->
+                <prop key="CrearMiCuestionario.html">miCuestionarioController</prop>
+                <prop key="ActualizarMiCuestionario.html">miCuestionarioController</prop>
+                <prop key="EliminarMiCuestionario.html">miCuestionarioController</prop>
+            </props>
+        </property>
+    </bean>
+
+    
+    <!--Aqui estamos indicando de donde va a obtener nuestras vistas con extension .jsp-->
+    <bean id="viewResolver" 
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+
+   
+    <!--Aqui vamos a declarar todas las ubicaciones de nuestros controladores y su nombre -->
+    <bean name="homeController" class="Elearning.controler.HomeController"/>
+    <bean name="cursoControler" class="Elearning.controler.CursoControler"/>
+    <bean name="moduloControler" class="Elearning.controler.ModuloControler"/>
+    <bean name="usuarioControler" class="Elearning.controler.UsuarioControler"/>
+    <bean name="archivoControler" class="Elearning.controler.ArchivoControler"/>
+    <bean name="cuestionarioController" class="Elearning.controler.CuestionarioController"/>
+    <bean name="preguntasController" class="Elearning.controler.PreguntasController"/>
+    <bean name="miCuestionarioController" class="Elearning.controler.MiCuestionarioController"/>
+
+    <!--Validacion de Autowired y Repositories de Spring
+    <tx:annotation-driven />-->
+    <context:annotation-config />
+    <context:component-scan base-package="Elearning.controler"/>
+    <context:component-scan base-package="Elearning.dao.impl"/>
+    <context:component-scan base-package="Elearning.service.impl"/>
+   
+</beans>
