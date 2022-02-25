@@ -67,8 +67,7 @@ public class CursoServiceImpl implements CursoService {
             Curso entidad = new Curso();
             entidad.setNombre(CursoF.getNombre());
             entidad.setDescripcion(CursoF.getDescripcion());
-            entidad.setCategoria(CursoF.getCategoria());
-
+            entidad.setIdCategoria(CursoF.getCategoria());
             //String enlacel = guardarImagen(CursoF.getCaratula(),request);
             String enlace = guardarDropBox(CursoF);
             if (!enlace.equals("")) {
@@ -77,13 +76,13 @@ public class CursoServiceImpl implements CursoService {
                 //Creamos el Curso 
                 entidad = cursoDao.create(entidad);
 
-                //Relacion MuchosAMuchos en este caso solo relaciona los Adminitradores con el Curso que crearon
+                /**Relacion MuchosAMuchos en este caso solo relaciona los Adminitradores con el Curso que crearon
                 user.getCursos().add(entidad);
                 entidad.getUsuarios().add(user);
                 usuarioDao.update(user);
-
+**/
                 //Almaceno en un variable global el id del curso que se creo en ese momento
-                session.setAttribute("CursoID", entidad.getIdCurso());
+                //session.setAttribute("CursoID", entidad.getIdCurso());
                 System.out.println("La Imagen se Guardo correctamente");
                 return "redirect:/anadirmodulos.html";
             } else {
@@ -111,7 +110,6 @@ public class CursoServiceImpl implements CursoService {
             
             updateCurso.setNombre(nombre);
             updateCurso.setDescripcion(descripcion);
-            updateCurso.setCategoria(categoria);
             updateCurso.setCaratula(enlaceNuevo);
             updateCurso = cursoDao.update(updateCurso);
             System.out.println("Curso Actualizado con url nueva");
@@ -120,7 +118,6 @@ public class CursoServiceImpl implements CursoService {
         }else {
             updateCurso.setNombre(nombre);
             updateCurso.setDescripcion(descripcion);
-            updateCurso.setCategoria(categoria);
             updateCurso.setCaratula(updateCurso.getCaratula());
             updateCurso = cursoDao.update(updateCurso);
             System.out.println("Curso Actualizado sin url nueva");

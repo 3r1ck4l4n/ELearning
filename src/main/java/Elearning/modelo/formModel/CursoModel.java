@@ -7,12 +7,12 @@ public class CursoModel {
     private String nombre;
     private String descripcion;
     private MultipartFile caratula;
-    private String categoria;
+    private int categoria;
 
     public CursoModel() {
     }
 
-    public CursoModel(String nombre, String descripcion, MultipartFile caratula, String categoria) {
+    public CursoModel(String nombre, String descripcion, MultipartFile caratula, int categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.caratula = caratula;
@@ -43,11 +43,11 @@ public class CursoModel {
         this.caratula = caratula;
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
 

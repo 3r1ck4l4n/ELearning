@@ -1,5 +1,8 @@
 package Elearning.modelo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +22,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//Mapero ORM
+//ORM
 @Entity
 @Table(name = "Usuario")
 public class Usuario implements Serializable {
@@ -57,6 +60,11 @@ public class Usuario implements Serializable {
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH},fetch = FetchType.EAGER)
     @JoinTable(name = "MiCurso",joinColumns = {@JoinColumn(name = "idUsuario")},inverseJoinColumns = {@JoinColumn(name = "idCurso")})
     private Set<Curso> cursos= new HashSet<>();
+
+    @OneToMany(mappedBy = "idUsuario",fetch=FetchType.EAGER,cascade = {CascadeType.ALL})
+    @Getter
+    @Setter
+    private List<MiCurso> misCursos;
 
     //Relacion UNO A MUCHOS con MiCuestionario --> "MUCHOS A MUCHOS"
     @OneToMany(mappedBy = "usuario",fetch=FetchType.LAZY,cascade = CascadeType.PERSIST)

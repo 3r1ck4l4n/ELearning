@@ -1,5 +1,8 @@
 package Elearning.modelo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,17 +15,30 @@ import javax.persistence.Table;
 @Table(name = "MiCurso")
 public class MiCurso implements Serializable {
 
+    @Getter
+    @Setter
     @Column(name = "progreso")
     private Integer progreso;
 
+    @Getter
+    @Setter
     @Id
     @Column(name = "idUsuario")
     private int idUsuario;
 
+    @Getter
+    @Setter
     @Id
     @Column(name = "idCurso")
     private int idCurso;
 
+    @Getter
+    @Setter
+    @Column(name = "sugerido")
+    private boolean sugerido;
+
+    @Column(name = "obligatorio")
+    private boolean obligatorio;
     public MiCurso() {
     }
 
@@ -31,33 +47,16 @@ public class MiCurso implements Serializable {
         this.idCurso = idCurso;
     }
 
+    public MiCurso(boolean sugerido, boolean obligatorio) {
+        this.sugerido = sugerido;
+        this.obligatorio = obligatorio;
+    }
+
     public MiCurso(Integer progreso) {
         this.progreso = progreso;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
-    }
-
-    public Integer getProgreso() {
-        return progreso;
-    }
-
-    public void setProgreso(Integer progreso) {
-        this.progreso = progreso;
-    }
 
     @Override
     public String toString() {

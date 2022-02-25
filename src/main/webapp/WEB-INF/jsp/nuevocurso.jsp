@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
@@ -156,10 +157,9 @@
                                 <br>
                                 <select  name="categoria" id="simple-input" class="k-textbox" style="width: 100%;">
                                     <option disabled selected value="c">Selecciona una categoria</option>
-                                    <option>Back-End</option>
-                                    <option>Front-End</option>
-                                    <option>Bases de Datos</option>
-                                    <option>Marketing Digital</option>
+                                    <c:forEach var="category" items="${categories}">
+                                        <option value=${category.idCategoria}>${category.nombreCategoria} </option>
+                                    </c:forEach>
                                 </select>
                                 <br>
                                 <br>

@@ -34,5 +34,6 @@
         <mapping class="Elearning.modelo.Preguntas" />
         <mapping class="Elearning.modelo.MiCuestionario" />
         <mapping class="Elearning.modelo.ArchivoUsuario" />
+        <mapping class="Elearning.modelo.Categoria" />
     </session-factory>
 </hibernate-configuration>

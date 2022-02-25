@@ -1,6 +1,9 @@
 
 package Elearning.modelo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,49 +24,53 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Curso")
-public class Curso implements Serializable{
-   
+@Table(name = "Curso")
+public class Curso implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idCurso")
+    @Column(name = "idCurso")
     private Integer idCurso;
-    
-    @Column(name="nombre")
+
+    @Column(name = "nombre")
     private String nombre;
-    
-    @Column(name="descripcion")
+
+    @Column(name = "descripcion")
     private String descripcion;
-    
-    @Column(name="caratula")
+
+    @Column(name = "caratula")
     private String caratula;
-    
-    @Column(name="categoria")
-    private String categoria;
-    
+
+    @Column(name = "ID_CATEGORIA")
+    @Getter
+    @Setter
+    private int idCategoria;
+
     //Relacion UNO A MUCHOS con Modulo
-    @OneToMany(mappedBy = "idCurso",fetch=FetchType.LAZY,cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "idCurso", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Modulo> idModulo;
-    
-     //Relacion Uno a Muchos con Archivo
-    @OneToMany(mappedBy = "idCurso",fetch=FetchType.LAZY,cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+
+    //Relacion Uno a Muchos con Archivo
+    @OneToMany(mappedBy = "idCurso", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Archivo> idArchivo;
 
-    
-   //Relacion MUCHOS A MUCHOS con Usuario
-    @ManyToMany(mappedBy = "cursos",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH},fetch = FetchType.EAGER)
-    private Set<Usuario> usuarios= new HashSet<>();
+
+    //Relacion MUCHOS A MUCHOS con Usuario
+    @ManyToMany(mappedBy = "cursos", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    private Set<Usuario> usuarios = new HashSet<>();
+
+
 
     public Curso() {
     }
 
-    public Curso(String nombre, String descripcion, String caratula, int progreso, String categoria) {
+    public Curso(String nombre, String descripcion, String caratula, int progreso, int categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.caratula = caratula;
-        this.categoria = categoria;
+        this.idCategoria = categoria;
     }
-    
+
     public Integer getIdCurso() {
         return idCurso;
     }
@@ -96,13 +103,6 @@ public class Curso implements Serializable{
         this.caratula = caratula;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
     public List<Modulo> getIdModulo() {
         return idModulo;
@@ -126,30 +126,29 @@ public class Curso implements Serializable{
 
     public void setIdArchivo(List<Archivo> idArchivo) {
         this.idArchivo = idArchivo;
-    }   
-    
-       
-    public void addModulos(Modulo modulo){   
-        if(idModulo!=null){
-            idModulo=new ArrayList<>();
+    }
+
+
+    public void addModulos(Modulo modulo) {
+        if (idModulo != null) {
+            idModulo = new ArrayList<>();
             idModulo.add(modulo);
             modulo.setIdCurso(this);
-        }    
+        }
     }
-    
-    public void addArchivos(Archivo archivo){   
-        if(idArchivo!=null){
-            idArchivo= new ArrayList<>();
+
+    public void addArchivos(Archivo archivo) {
+        if (idArchivo != null) {
+            idArchivo = new ArrayList<>();
             idArchivo.add(archivo);
             archivo.setIdCurso(this);
-        }    
+        }
     }
 
 
-  
     @Override
     public String toString() {
-        return "Curso{" + "idCurso=" + idCurso + ", nombre=" + nombre + ", descripcion=" + descripcion + ", caratula=" + caratula + ", categoria=" + categoria + '}';
+        return "Curso{" + "idCurso=" + idCurso + ", nombre=" + nombre + ", descripcion=" + descripcion + ", caratula=" + caratula + ", categoria=" + idCategoria + '}';
     }
 
 

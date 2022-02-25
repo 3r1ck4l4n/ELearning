@@ -1,13 +1,18 @@
 package Elearning.controler;
 
+import Elearning.dao.CategoriaDao;
+import Elearning.modelo.Categoria;
+import Elearning.modelo.Categoria_;
 import Elearning.modelo.formModel.CursoModel;
 import Elearning.service.CursoService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +35,13 @@ public class CursoControler {
 
     @Autowired
     private CursoService cursoService;
-
+    @Autowired
+    private     CategoriaDao categoriaDao;
     @RequestMapping(value = "nuevocurso.html", method = RequestMethod.GET)
-    public ModelAndView nuevocurso() {
+    public ModelAndView nuevocurso(Model model) {
         ModelAndView mo = new ModelAndView();
+        List<Categoria> categories = categoriaDao.getAll();
+        model.addAttribute("categories", categories);
         mo.setViewName("nuevocurso");
         return mo;
     }

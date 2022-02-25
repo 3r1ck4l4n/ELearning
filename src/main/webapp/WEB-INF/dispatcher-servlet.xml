@@ -15,7 +15,7 @@
 ">
     
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
-   
+
    
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
         <property name="mappings"> 
@@ -98,6 +98,9 @@
                 <prop key="CrearMiCuestionario.html">miCuestionarioController</prop>
                 <prop key="ActualizarMiCuestionario.html">miCuestionarioController</prop>
                 <prop key="EliminarMiCuestionario.html">miCuestionarioController</prop>
+                <!--Mpeo de Categorias -->
+                <prop key="addCategory.html">categoryController</prop>
+                <prop key="createCategory.html">categoryController</prop>
             </props>
         </property>
     </bean>
@@ -118,6 +121,7 @@
     <bean name="cuestionarioController" class="Elearning.controler.CuestionarioController"/>
     <bean name="preguntasController" class="Elearning.controler.PreguntasController"/>
     <bean name="miCuestionarioController" class="Elearning.controler.MiCuestionarioController"/>
+    <bean name="categoryController" class="Elearning.controler.CategoryController"/>
 
     <!--Validacion de Autowired y Repositories de Spring
     <tx:annotation-driven />-->
