@@ -46,9 +46,9 @@
                 <prop key="ActualizarCurso.html">cursoControler</prop>
                 <prop key="Cartas.html">cursoControler</prop>
                 <prop key="errorCurso.html">cursoControler</prop>
-                <prop key="errorCursoU.html">cursoControler</prop>          
-
-                
+                <prop key="errorCursoU.html">cursoControler</prop>
+                <prop key="selectCourses.html">cursoControler</prop>
+                <prop key="chooseCourses.html">cursoControler</prop>
                 <!--Mapeo de los Modulos-->
                 <prop key="anadirmodulos.html">moduloControler</prop>
                 <prop key="actualizarmodulos.html">moduloControler</prop><!--Esta es la vista del crud de Curso si de desean agregar mas-->

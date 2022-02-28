@@ -6,6 +6,7 @@ import Elearning.modelo.Categoria_;
 import Elearning.modelo.formModel.CursoModel;
 import Elearning.service.CursoService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
@@ -13,18 +14,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -111,8 +106,18 @@ public class CursoControler {
         return "errorCursoU";
     }
     
-    
-    
+    @RequestMapping(value = "selectCourses.html")
+    public String selectCourses( Model model){
+        List<Categoria> categorias = categoriaDao.getAll();
+        model.addAttribute("categories", categorias);
+        return "selectCourses";
+    }
+
+    @PostMapping("chooseCourses.html")
+    public String selectCourses(@RequestParam Map<String, String> allParams){
+        allParams.forEach((key, value)-> System.out.println(key + "--->" + value ));
+        return null;
+    }
     
 
 }
