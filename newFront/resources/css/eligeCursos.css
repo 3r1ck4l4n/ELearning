@@ -1,0 +1,60 @@
+body {
+    background-color: #203853;
+}
+.k-checkbox{
+
+}
+
+.fieldlist {
+    margin: 0 0 -1em;
+    padding: 10px;
+}
+
+.fieldlist li {
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+.headernav{
+    padding-top: 50px;
+    padding-left: 40px;
+}
+#logo{
+    display: block;
+    text-align: center;
+
+
+}
+.avatar{
+    margin-top: 8px;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: solid 5px #B15D28
+;
+}
+#container{
+    padding: 1px;
+    width: 900px;
+    height: 600px;
+    margin: auto;
+    margin-top: -60px;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .3) ; ;
+    background: #f1f1f1;
+    border-radius: 15px;
+}
+
+scroll-container{
+    margin-top: 30px;
+    display: block;
+    min-height: 20px;
+    width: 870px;
+    height: 477px;
+    padding-left: 30px;
+    align-items: center;
+    background: #f1f1f1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+

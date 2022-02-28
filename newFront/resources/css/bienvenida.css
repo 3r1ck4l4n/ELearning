@@ -1,0 +1,20 @@
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    justify-content: center;
+    background:  #EAECE8;
+}
+
+
+  
+#scrollView .photo {
+    display: inline-block;
+    height: 100%;
+    width: 33%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+ 
