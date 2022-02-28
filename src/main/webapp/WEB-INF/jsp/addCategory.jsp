@@ -50,7 +50,7 @@
 
     <main>
         <div class="form-container">
-            <form:form action="createCategory.html" modelAttribute="category" method="post">
+            <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
                     <form:label for="name-category" class="form-item" path="">Nombre</form:label>
                     <form:input id="name-category"  class="form-item" path="nombreCategoria"></form:input>
@@ -61,8 +61,8 @@
                     <form:textarea  id="description" class="form-item" path="descripcionCategoria" ></form:textarea>
                 </div>
                 <div class="form-control">
-                    <label class="form-item" for="image-category">Imagen</label>
-                    <input class="form-item" id="image-category" type="file" />
+                    <label class="form-item" for="image-category" >Imagen</label>
+                    <input class="form-item" id="image-category" name="imgCategory" type="file" />
                 </div>
                 <button class="form-item">
                     Enviar

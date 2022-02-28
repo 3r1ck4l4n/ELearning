@@ -3,12 +3,15 @@ package Elearning.controler;
 import Elearning.dao.CategoriaDao;
 import Elearning.modelo.Categoria;
 import Elearning.service.CategoryService;
+import com.dropbox.core.DbxException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -26,7 +29,8 @@ public class CategoryController {
     }
 
     @PostMapping("createCategory.html")
-    public String createCategory(@ModelAttribute("category") Categoria categoria) {
+    public String createCategory(@ModelAttribute("category") Categoria categoria, @RequestParam(name = "imgCategory")MultipartFile imgCategory) throws IOException, DbxException {
+        categoria.setCaratula(categoryService.guardarDropBox(imgCategory));
         boolean status =categoryService.addCategory(categoria);
         String view;
         if(status){

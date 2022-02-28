@@ -13,6 +13,8 @@ import com.dropbox.core.v2.files.LookupError;
 import com.dropbox.core.v2.files.WriteMode;
 import com.dropbox.core.v2.sharing.ListSharedLinksResult;
 import com.dropbox.core.v2.sharing.SharedLinkMetadata;
+import org.springframework.stereotype.Service;
+
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -28,7 +30,6 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-
 
 public class JavaDropBox {
 
