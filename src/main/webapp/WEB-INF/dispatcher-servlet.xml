@@ -13,14 +13,13 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 ">
-    
+    <mvc:annotation-driven/>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
-   
-    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
-        <property name="mappings"> 
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
             <props>
-          
+
                 <!--Mapeo del Login-->
                 <prop key="index.html">homeController</prop>
                 <prop key="validador.html">homeController</prop>
@@ -31,12 +30,12 @@
                 <prop key="semilleroRegistro.html">homeController</prop>
                 <prop key="existe.html">homeController</prop>
                 <prop key="exito.html">homeController</prop>
-                <prop key="cerrarSession.html">homeController</prop>       
+                <prop key="cerrarSession.html">homeController</prop>
                 <prop key="regresa.html">homeController</prop>
                 <prop key="enviarCorreo.html">homeController</prop>
                 <prop key="cerrarSession.html">homeController</prop>
-                
-                <!--Mapeo de los Cursos--> 
+
+                <!--Mapeo de los Cursos-->
                 <prop key="addCurso.html">cursoControler</prop>
                 <prop key="crearCurso.html">cursoControler</prop>
                 <prop key="enviarCorreo.html">homeController</prop>
@@ -48,7 +47,7 @@
                 <prop key="errorCurso.html">cursoControler</prop>
                 <prop key="errorCursoU.html">cursoControler</prop>
                 <prop key="selectCourses.html">cursoControler</prop>
-                <prop key="chooseCourses.html">cursoControler</prop>
+
                 <!--Mapeo de los Modulos-->
                 <prop key="anadirmodulos.html">moduloControler</prop>
                 <prop key="actualizarmodulos.html">moduloControler</prop><!--Esta es la vista del crud de Curso si de desean agregar mas-->
@@ -58,7 +57,7 @@
                 <prop key="borrarModulo.html">moduloControler</prop>
                 <prop key="primerosmodulos.html">moduloControler</prop>
                 <prop key="anadirModulos.html">moduloControler</prop>
-                
+
                 <!--Mapeo del Usuario-->
                 <prop key="perfilsem.html">usuarioControler</prop>
                 <prop key="ProgressBar.html">usuarioControler</prop>
@@ -72,7 +71,7 @@
                 <prop key="actualizarAdmin.html">usuarioControler</prop>
                 <prop key="certificado.html">usuarioControler</prop>
                 <prop key="informeUsuario.html">usuarioControler</prop>
-                
+
                 <!--Mapeo de Archivos-->
                 <prop key="anadirarchivos.html">archivoControler</prop>
                 <prop key="addArchivos.html">archivoControler</prop>
@@ -80,7 +79,7 @@
                 <prop key="deleteArchivo.html">archivoControler</prop>
                 <prop key="anadirArchivos.html">archivoControler</prop>
                 <prop key="anadirNuevosarchivos.html">archivoControler</prop>
-                
+
                 <!--Mapeo de Cuestionario-->
                 <prop key="cuestionario.html">cuestionarioController</prop>
                 <prop key="CrearCuestionario.html">cuestionarioController</prop>
@@ -88,30 +87,32 @@
                 <prop key="EliminarCuestionario.html">cuestionarioController</prop>
                 <prop key="previewexamadmin.html">cuestionarioController</prop>
                 <prop key="examenuser.html">cuestionarioController</prop>
-                
+
                 <!--Mapeo de Preguntas-->
                 <prop key="CrearPreguntas.html">preguntasController</prop>
                 <prop key="ActualizarPreguntas.html">preguntasController</prop>
                 <prop key="EliminarPreguntas.html">preguntasController</prop>
-                
+
                 <!--Mapeo de MiCuestionario-->
                 <prop key="CrearMiCuestionario.html">miCuestionarioController</prop>
                 <prop key="ActualizarMiCuestionario.html">miCuestionarioController</prop>
                 <prop key="EliminarMiCuestionario.html">miCuestionarioController</prop>
-                <!--Mpeo de Categorias -->
+                <!--Mapeo de Categorias -->
                 <prop key="addCategory.html">categoryController</prop>
                 <prop key="createCategory.html">categoryController</prop>
+                <!--Mapeo de Mis Cursos -->
+                <prop key="chooseCourses.html">miCursoController</prop>
             </props>
         </property>
     </bean>
 
-    
+
     <!--Aqui estamos indicando de donde va a obtener nuestras vistas con extension .jsp-->
-    <bean id="viewResolver" 
+    <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 
-   
+
     <!--Aqui vamos a declarar todas las ubicaciones de nuestros controladores y su nombre -->
     <bean name="homeController" class="Elearning.controler.HomeController"/>
     <bean name="cursoControler" class="Elearning.controler.CursoControler"/>
@@ -122,9 +123,13 @@
     <bean name="preguntasController" class="Elearning.controler.PreguntasController"/>
     <bean name="miCuestionarioController" class="Elearning.controler.MiCuestionarioController"/>
     <bean name="categoryController" class="Elearning.controler.CategoryController"/>
+    <bean name="miCursoController" class="Elearning.controler.MiCursoController"/>
+
+
 
     <!--Validacion de Autowired y Repositories de Spring
     <tx:annotation-driven />-->
+
     <context:annotation-config />
     <context:component-scan base-package="Elearning.controler"/>
     <context:component-scan base-package="Elearning.dao.impl"/>

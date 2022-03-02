@@ -18,7 +18,10 @@
 
 
 <scroll-container>
-    <form:form method="post" action="chooseCourses.html">
+
+        ${usuario.nombre}
+    <form:form method="post" action="chooseCourses.html" modelAttribute="usuario">
+        <form:hidden path="idUsuario"/>
         <c:forEach var="category" items="${categories}">
             <div class="Sec1">
                 <h4> ${category.nombreCategoria}</h4>

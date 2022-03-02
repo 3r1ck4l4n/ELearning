@@ -1,20 +1,27 @@
 
 package Elearning.controler;
 
+import Elearning.modelo.Usuario;
 import Elearning.service.UsuarioService;
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
     
     
@@ -26,26 +33,30 @@ public class HomeController {
     public ModelAndView home(){
         ModelAndView mo = new ModelAndView();
         mo.setViewName("index");
-        return mo;   
+        return mo;
     }
     
     
     @RequestMapping(value="semilleroRegistro.html",method = RequestMethod.POST)
-    public ModelAndView semilleroRegistro(HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView semilleroRegistro(HttpServletRequest request, RedirectAttributes redirectAttributes) throws IOException {
         ModelAndView mo = new ModelAndView();
-        switch (usuarioService.createNewSemillero(request)) {
+        String data = usuarioService.createNewSemillero(request);
+        switch (data) {
             case "existente":
+                System.out.println();
                 mo.setViewName("error");
                 break;
             default:
-                mo.setViewName("exito");
+                redirectAttributes.addFlashAttribute("user", data);
+                mo.setViewName("redirect:/selectCourses.html");
+                System.out.println("Redirect");
                 break;
         }
          return mo;
         
     }
     
-    @RequestMapping(name = "validador.html",method = RequestMethod.POST)
+    @RequestMapping(value = "validador.html",method = RequestMethod.POST)
     public ModelAndView validador(HttpServletRequest request, HttpServletResponse response){
         ModelAndView mo = new ModelAndView();
          switch (usuarioService.loginUser(request)) {
@@ -63,7 +74,7 @@ public class HomeController {
     }
    
    
-    @RequestMapping(name = "enviarCorreo.html",method = RequestMethod.GET)
+    @RequestMapping(value = "enviarCorreo.html",method = RequestMethod.GET)
     public ModelAndView enviarCorreo(HttpServletRequest request,HttpServletResponse response){
         ModelAndView mo = new ModelAndView();
         if(usuarioService.recuperarContraseña(request)){
@@ -77,7 +88,7 @@ public class HomeController {
     } 
     
      //Controlador para cerrar session
-    @RequestMapping(name = "cerrarSession.html", method = RequestMethod.GET)
+    @RequestMapping(value = "cerrarSession.html", method = RequestMethod.GET)
      public ModelAndView cerrarSession(HttpServletRequest request, HttpServletResponse response){
         ModelAndView mo = new ModelAndView();
         HttpSession session = request.getSession(false);

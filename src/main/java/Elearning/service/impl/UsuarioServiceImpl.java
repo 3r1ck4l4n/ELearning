@@ -149,7 +149,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         try {
             ObjectMapper mapper = new ObjectMapper();
-            data = mapper.writeValueAsString(dto);
+            data = mapper.writeValueAsString(usuario);
         } catch (JsonProcessingException ex) {
             Logger.getLogger(UsuarioServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

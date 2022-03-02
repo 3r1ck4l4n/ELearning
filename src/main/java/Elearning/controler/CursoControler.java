@@ -3,8 +3,11 @@ package Elearning.controler;
 import Elearning.dao.CategoriaDao;
 import Elearning.modelo.Categoria;
 import Elearning.modelo.Categoria_;
+import Elearning.modelo.Usuario;
 import Elearning.modelo.formModel.CursoModel;
 import Elearning.service.CursoService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -105,19 +108,32 @@ public class CursoControler {
     public String errorCursoU(){
         return "errorCursoU";
     }
-    
+
+
+    /***
+     * Esta función permite mostrar el formulario para seleccionar los cursos que el usuario desea tomar.
+     * @params: Model, String
+     *
+     * @return String
+     *
+     * */
+
     @RequestMapping(value = "selectCourses.html")
-    public String selectCourses( Model model){
+    public String selectCourses(Model model, @ModelAttribute("user") String usuario) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Usuario us = mapper.readValue(usuario, Usuario.class);
+
+        System.out.println(us);
         List<Categoria> categorias = categoriaDao.getAll();
+        model.addAttribute("usuario", us);
         model.addAttribute("categories", categorias);
+
+
         return "selectCourses";
     }
 
-    @PostMapping("chooseCourses.html")
-    public String selectCourses(@RequestParam Map<String, String> allParams){
-        allParams.forEach((key, value)-> System.out.println(key + "--->" + value ));
-        return null;
-    }
+
     
 
 }
