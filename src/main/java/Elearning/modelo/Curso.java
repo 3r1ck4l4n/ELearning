@@ -59,7 +59,9 @@ public class Curso implements Serializable {
     @ManyToMany(mappedBy = "cursos", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private Set<Usuario> usuarios = new HashSet<>();
 
-
+    //
+    @OneToMany(mappedBy = "curso", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
+    private List<MiCurso> miscursos;
 
     public Curso() {
     }

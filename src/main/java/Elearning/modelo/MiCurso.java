@@ -2,14 +2,10 @@ package Elearning.modelo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ManyToAny;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "MiCurso")
@@ -57,9 +53,15 @@ public class MiCurso implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
         return "MiCurso{" + "idUsuario=" + idUsuario + ", idCurso=" + idCurso + ", progreso=" + progreso + '}';
     }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idCurso", insertable = false, updatable = false)
+    @Getter
+    @Setter
+    private Curso curso;
+
 }

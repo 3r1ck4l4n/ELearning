@@ -102,6 +102,8 @@
                 <prop key="createCategory.html">categoryController</prop>
                 <!--Mapeo de Mis Cursos -->
                 <prop key="chooseCourses.html">miCursoController</prop>
+                <!-- Mapeo de validar Cursos -->
+                <prop key="updateAccesss.html">validateController</prop>
             </props>
         </property>
     </bean>
@@ -124,8 +126,7 @@
     <bean name="miCuestionarioController" class="Elearning.controler.MiCuestionarioController"/>
     <bean name="categoryController" class="Elearning.controler.CategoryController"/>
     <bean name="miCursoController" class="Elearning.controler.MiCursoController"/>
-
-
+    <bean name="validateController" class="Elearning.controler.ValidateController"/>
 
     <!--Validacion de Autowired y Repositories de Spring
     <tx:annotation-driven />-->
@@ -134,5 +135,5 @@
     <context:component-scan base-package="Elearning.controler"/>
     <context:component-scan base-package="Elearning.dao.impl"/>
     <context:component-scan base-package="Elearning.service.impl"/>
-   
+
 </beans>

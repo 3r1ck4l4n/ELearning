@@ -2,6 +2,13 @@
 package Elearning.dto;
 
 
+import Elearning.modelo.Curso;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 public class MiCursoDto {
     
     private Integer idUsuario;
@@ -35,6 +42,6 @@ public class MiCursoDto {
     public String toString() {
         return "MiCursoDto{" + "idUsuario=" + idUsuario + ", idCurso=" + idCurso + '}';
     }
-    
+
     
 }

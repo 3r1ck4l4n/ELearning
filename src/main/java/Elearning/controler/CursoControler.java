@@ -2,7 +2,6 @@ package Elearning.controler;
 
 import Elearning.dao.CategoriaDao;
 import Elearning.modelo.Categoria;
-import Elearning.modelo.Categoria_;
 import Elearning.modelo.Usuario;
 import Elearning.modelo.formModel.CursoModel;
 import Elearning.service.CursoService;

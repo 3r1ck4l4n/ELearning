@@ -6,6 +6,7 @@ import Elearning.service.MiCursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 @Service
 public class MiCursoServiceImpl implements MiCursoService {
@@ -20,6 +21,7 @@ public class MiCursoServiceImpl implements MiCursoService {
             allParams.remove("idUsuario");
 
             allParams.forEach((k, v)->{
+                System.out.println("key " + k + "value " + v);
                 int idCurso = Integer.parseInt(v);
                 MiCurso miCurso = new MiCurso(idUsuario,idCurso);
                 miCursoDao.create(miCurso);
@@ -31,6 +33,11 @@ public class MiCursoServiceImpl implements MiCursoService {
             System.out.println("Se ejecuto el metodo en su totalidad");
         }
         return status;
+    }
+
+    @Override
+    public List<MiCurso> bringList(Integer idUsuario) {
+        return miCursoDao.getMiCurso(idUsuario);
     }
 
 

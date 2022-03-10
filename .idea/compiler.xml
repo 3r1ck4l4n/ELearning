@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="E_Learning" />
+        <module name="ELearning_Clone" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ELearning_Clone" options="-endorseddirs &quot;R:\Documentos\B1SOFT\Fall out\ELearning Repo\ELearning_Clone\target/endorsed&quot;" />
       <module name="E_Learning" options="-endorseddirs &quot;D:\yeder\Desktop\Semillero Elearning\Semillero\SistemaELearning\target/endorsed&quot;" />
     </option>
   </component>
