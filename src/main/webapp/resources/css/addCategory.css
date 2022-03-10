@@ -59,7 +59,15 @@ li.nav-item:hover{
     background-color: #B15D28;
 
 }
-
+.headUs{
+    width: 90%;
+    border: solid 2px black;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .5);
+}
 
 .form-container{
     padding: 10px;
@@ -67,14 +75,15 @@ li.nav-item:hover{
     margin: auto;
     margin-top: 50px;
     border-radius: 5px;
-    background-color: #203853;
-    box-shadow: 8px 10px 10px rgba(0,0,0, .5) ; ;
+    background-color: #20532a;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .5);
 }
 
 .form-container form{
     width: 80%;
     margin: auto;
 }
+
 .form-item{
     display: block;
     width: 80%;

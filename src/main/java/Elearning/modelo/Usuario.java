@@ -78,7 +78,11 @@ public class Usuario implements Serializable {
 //    Relacion UNO A MUCHOS con idArchivoUsuario
     @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<ArchivoUsuario> idArchivoUsuario;
-    
+
+
+    @OneToMany(mappedBy = "usuarioAc", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
+    private List<MiCurso> miCursos;
+
     //Relacion MUCHOS A MUCHOS con Cuestionario
 //    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH},fetch = FetchType.EAGER)
 //    @JoinTable(name = "MiCuestionario",joinColumns = {@JoinColumn(name = "idUsuario")},inverseJoinColumns = {@JoinColumn(name = "idCuestionario")})

@@ -64,4 +64,10 @@ public class MiCurso implements Serializable {
     @Setter
     private Curso curso;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario", insertable = false, updatable = false)
+    @Getter
+    @Setter
+    private Usuario usuarioAc;
 }
+

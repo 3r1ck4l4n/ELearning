@@ -9,52 +9,48 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="${pageContext.request.contextPath}/resources/css/addCategory.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
     <title>Valida Cursos</title>
 </head>
 <body>
-<center>
-    <table  class="tableUno">
-        <tr>
-            <td style="background-color: rgb(154, 214, 224);">
-                <p>Usuario</p>
-            </td>
-            <td style="background-color: rgb(154, 214, 224);">
-                <p>Juan</p>
-            </td>
-            <td style="background-color: rgb(154, 214, 224);" colspan="3">
-                juan.ipn@gmail.com
-            </td>
-        </tr>
-    </table>
-    <br>
-    <!--
-    <table>
-        <tr>
-            <td style="background-color: rgb(244, 167, 187);">
-                <p> Obligatorio</p>
-            </td>
-            <td style="background-color: rgb(161, 249, 171);">
-                <p>Sugerido</p>
-            </td>
-            <td style="background-color: rgb(154, 214, 224);">
-                <p>Categoria</p>
-            </td>
-            <td style="background-color: rgb(154, 214, 224);">
-                <p>Cursos</p>
-            </td>
-            -->
+<header>
+    <div class="navbar">
+        <div class="img-container">
+            <img src="./B1SOFT-LOGO.gif" alt="Logo">
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link">Cursos </a> </li>
+                <li class="nav-item"><a href="#" class="nav-link">Crear cursos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Lista de usuarios</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
 
-    <form:form method="get" action="validateCourse.html" modelAttribute="listMiCurso">
+    <div class="headUs">
+        <h5>${listMiCurso[0].usuarioAc.nombre}</h5>
+    </div>
+
+    <div class="form-container">
+        <form:form method="get" action="validateCourse.html" modelAttribute="listMiCurso">
             <c:forEach var="miCurso" items="${listMiCurso}">
                 <div>
-                   <h5>${miCurso.curso.nombre}</h5>
+                    <h5>${miCurso.curso.nombre}</h5>
                 </div>
             </c:forEach>
-    </form:form>
+        </form:form>
+    </div>
 
 
-    </table>
-</center>
+</main>
 
 </body>
 </html>

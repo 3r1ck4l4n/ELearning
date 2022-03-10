@@ -22,6 +22,8 @@ public class ValidateController {
     public String updateAccess(Model model, @RequestParam("idUsuario") Integer idUsuario){
         model.addAttribute("listMiCurso",miCursoService.bringList(idUsuario));
         return "validateCourse";
+
     }
+
 
 }
