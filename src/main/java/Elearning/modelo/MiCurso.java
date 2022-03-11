@@ -69,5 +69,6 @@ public class MiCurso implements Serializable {
     @Getter
     @Setter
     private Usuario usuarioAc;
+
 }
 

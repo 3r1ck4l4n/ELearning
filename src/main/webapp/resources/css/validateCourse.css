@@ -22,8 +22,7 @@ nav{
 
 .img-container img{
     max-width: 100%;
-    max-height: 100% ;
-    box-shadow: 2px 2px 2px rgba(255, 255, 255, .5) ;
+    max-height: 100%;
 }
 li.nav-item{
     display: block;
@@ -61,6 +60,16 @@ ul.nav{
 li.nav-item:hover{
     background-color: #B15D28;
 }
+.headUs{
+    width: 50%;
+    border: solid 2px black;
+    margin: auto;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .5);
+}
 
 .form-container{
 
@@ -73,9 +82,10 @@ li.nav-item:hover{
     box-shadow: 8px 10px 10px rgba(0,0,0, .5);
 }
 
-.form-container form{
+.form-container div{
     width: 80%;
     margin: auto;
+    color:  #EAECE8;
 }
 
 .form-item{
@@ -104,9 +114,9 @@ button.form-item:hover{
     background-color: rgb(68, 66, 66);
 }
 
-.form-control{
+.form-control {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
-
 }
+

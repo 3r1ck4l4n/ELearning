@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="${pageContext.request.contextPath}/resources/css/addCategory.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/validateCourse.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 <header>
     <div class="navbar">
         <div class="img-container">
-            <img src="./B1SOFT-LOGO.gif" alt="Logo">
+            <img src="${pageContext.request.contextPath}/resources/imagenes/B1SOFT-LOGO.gif" alt="Logo">
         </div>
         <nav>
             <ul class="nav">
@@ -36,10 +36,12 @@
 <main>
 
     <div class="headUs">
-        <h5>${listMiCurso[0].usuarioAc.nombre}</h5>
+        <h5>${listMiCurso[0].usuarioAc.nombre} ${ listMiCurso[0].usuarioAc.aPaterno} ${listMiCurso[0].usuarioAc.aMaterno}Correo: ${listMiCurso[0].usuarioAc.email}</h5>
+
     </div>
 
     <div class="form-container">
+        <pr>Cursos a validar</pr>
         <form:form method="get" action="validateCourse.html" modelAttribute="listMiCurso">
             <c:forEach var="miCurso" items="${listMiCurso}">
                 <div>

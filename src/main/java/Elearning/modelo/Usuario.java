@@ -79,7 +79,7 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<ArchivoUsuario> idArchivoUsuario;
 
-
+    //Relación de UNO a MUCHOS  para la lista de curso para idUsuario
     @OneToMany(mappedBy = "usuarioAc", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     private List<MiCurso> miCursos;
 
