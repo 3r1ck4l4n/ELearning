@@ -40,5 +40,21 @@ public class MiCursoServiceImpl implements MiCursoService {
         return miCursoDao.getMiCurso(idUsuario);
     }
 
+    @Override
+    public boolean updateMiCurso(MiCurso miCurso) {
+        if(!miCurso.isObligatorio()){
+            miCurso.setObligatorio(false);
+        }
+        if(!miCurso.isSugerido()){
+            miCurso.setSugerido(false);
+        }
+        miCurso.setProgreso(0);
+        MiCurso curso = miCursoDao.update(miCurso);
+        if (curso != null){
+            return true;
+        }
+        return false;
+    }
+
 
 }

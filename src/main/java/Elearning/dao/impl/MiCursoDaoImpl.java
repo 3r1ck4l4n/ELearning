@@ -145,7 +145,7 @@ public class MiCursoDaoImpl implements MiCursoDao {
             transaccion.commit();
 
         } catch (HibernateException e) {
-            //Si la transaccion esta bacia y ademas esta activa que regrese el estado en el que se encontraba la Base de Dato
+            //Si la transaccion esta vacia y ademas esta activa que regrese el estado en el que se encontraba la Base de Dato
             if (transaccion != null && transaccion.isActive()) {
                 transaccion.rollback();
             }

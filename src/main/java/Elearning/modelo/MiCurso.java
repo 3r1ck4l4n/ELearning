@@ -34,7 +34,10 @@ public class MiCurso implements Serializable {
     private boolean sugerido;
 
     @Column(name = "obligatorio")
+    @Getter
+    @Setter
     private boolean obligatorio;
+
     public MiCurso() {
     }
 
@@ -52,6 +55,12 @@ public class MiCurso implements Serializable {
         this.progreso = progreso;
     }
 
+    public MiCurso(int idUsuario, int idCurso, boolean obligatorio, boolean sugerido) {
+        this.idUsuario = idUsuario;
+        this.idCurso = idCurso;
+        this.sugerido = sugerido;
+        this.obligatorio = obligatorio;
+    }
 
     @Override
     public String toString() {

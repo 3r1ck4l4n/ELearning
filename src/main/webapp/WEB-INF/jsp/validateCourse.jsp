@@ -36,19 +36,57 @@
 <main>
 
     <div class="headUs">
-        <h5>${listMiCurso[0].usuarioAc.nombre} ${ listMiCurso[0].usuarioAc.aPaterno} ${listMiCurso[0].usuarioAc.aMaterno}Correo: ${listMiCurso[0].usuarioAc.email}</h5>
+        <h5>${listMiCurso[0].usuarioAc.nombre} ${listMiCurso[0].usuarioAc.aPaterno} ${listMiCurso[0].usuarioAc.aMaterno}</h5>
+        <h6>Correo: ${listMiCurso[0].usuarioAc.email}</h6>
 
     </div>
 
     <div class="form-container">
         <pr>Cursos a validar</pr>
-        <form:form method="get" action="validateCourse.html" modelAttribute="listMiCurso">
-            <c:forEach var="miCurso" items="${listMiCurso}">
-                <div>
-                    <h5>${miCurso.curso.nombre}</h5>
-                </div>
-            </c:forEach>
-        </form:form>
+            <table>
+                <thead>
+                <tr>
+                    <th>Obligatorio</th>
+                    <th>Sugerido</th>
+                    <th> Nombre del curso</th>
+                    <th> Categoria</th>
+                    <th> Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="miCurso" items="${listMiCurso}">
+                    <form:form method="post" action="validateCourse.html" modelAttribute="updateMiCurso">
+
+                        <form:hidden path="idUsuario" value="${miCurso.idUsuario}"/>
+                        <form:hidden path="idCurso" value="${miCurso.idCurso}"/>
+                        <c:choose>
+                            <c:when test="${miCurso.obligatorio}">
+                                <td><form:checkbox path="obligatorio" value="1" checked="checked"/></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><form:checkbox path="obligatorio" value="1" /></td>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${miCurso.sugerido}">
+                                <td><form:checkbox path="sugerido" value="1" checked="checked"/></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><form:checkbox path="sugerido" value="1"  /></td>
+                            </c:otherwise>
+                        </c:choose>
+                        <td> ${miCurso.curso.nombre}</td>
+                        <td> ${miCurso.curso.categoria.nombreCategoria}</td>
+                        <td>
+                            <button type="submit">Guardar</button>
+                        </td>
+                        </tr>
+                    </form:form>
+                </c:forEach>
+                </tbody>
+            </table>
+
+
     </div>
 
 
