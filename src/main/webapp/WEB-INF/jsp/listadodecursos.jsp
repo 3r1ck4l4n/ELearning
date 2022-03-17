@@ -432,7 +432,7 @@
             DataForm["id"] = `${cur.idCurso}`;
             DataForm["nom"] = `${cur.nombre}`;
             DataForm["des"] = `${cur.descripcion}`;
-            DataForm["cat"] = `${cur.categoria}`;
+            DataForm["cat"] = `${cur.categoria.nombreCategoria}`;
             InsertarDatos(DataForm);
         </c:forEach>
 
@@ -528,6 +528,10 @@
 
         function cancelActualizar() {
             $("#formActualizar").hide("normal");
+        }
+
+        function goToValite(id) {
+            document.location.href = "validateCourse.html?idUsuario=" + id;
         }
 
         function alertActualizar() {
