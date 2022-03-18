@@ -30,8 +30,17 @@
 </head>
 
 <body>
+<%
+    String tipoUsuario = (String) session.getAttribute("tUsuario");
+    if (tipoUsuario != null) {
+        if (tipoUsuario.equals("Semillero")) {
+            response.sendRedirect("bienvenida.html");
+        }
+    } else {
+        response.sendRedirect("index.html");
+    }
+%>
 <header>
-
     <nav class="navbar">
         <div class="logo">
             <div>
@@ -54,14 +63,18 @@
             </ul>
         </div>
     </nav>
+    <br>
 </header>
 <main>
 
-    <center><h1>Cursos a validar</h1></center>
+    <div class="upText">
+        <h1>Cursos a validar</h1>
+    </div>
 
     <div class="headUs">
-        <h5>${listMiCurso[0].usuarioAc.nombre} ${listMiCurso[0].usuarioAc.aPaterno} ${listMiCurso[0].usuarioAc.aMaterno}</h5>
-        <h6>Correo: ${listMiCurso[0].usuarioAc.email}</h6>
+        <h3>${listMiCurso[0].usuarioAc.nombre} ${listMiCurso[0].usuarioAc.aPaterno} ${listMiCurso[0].usuarioAc.aMaterno}</h3>
+        <h4>Correo: ${listMiCurso[0].usuarioAc.email}</h4>
+        <h4>RFC: ${listMiCurso[0].usuarioAc.rfc}</h4>
     </div>
 
     <div class="form-container">
@@ -112,8 +125,6 @@
 
 </main>
 <!--Footer-->
-<br>
-<br>
 <br>
 <br>
 <br>
