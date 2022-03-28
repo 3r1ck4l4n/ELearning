@@ -9,56 +9,74 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="${pageContext.request.contextPath}/resources/css/addCategory.css" rel="stylesheet" />
+     <link href="${pageContext.request.contextPath}/resources/css/newheader.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/resources/css/footer.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">  <title>Añadir categoría</title>
+  <title>Añadir categoría</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/header.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&di <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVsplay=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <title>Add Category</title>
 </head>
 <body>
+<header>
 
-    <%/**
-     <c:forEach var="category" items="${categories}">
-
-     <tr>
-     <td>${category.nombreCategoria}</td>
-     <td>${category.descripcionCategoria}</td>
-
-     </tr>
-     </c:forEach>
-        **/
-    %>
-    <header>
-        <div class="navbar">
-            <div class="img-container">
-                <img src="./B1SOFT-LOGO.gif" alt="Logo">
+    <nav class="navbar">
+        <div class="logo">
+            <div>
+                <a href="admin.html"><img src="${pageContext.request.contextPath}/resources/imagenes/B1SOFT-LOGO.gif"></a>
             </div>
-            <nav>
-                <ul class="nav">
-                    <li class="nav-item"> <a href="#" class="nav-link">Cursos </a> </li>
-                    <li class="nav-item"><a href="#" class="nav-link">Crear cursos</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Lista de usuarios</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="perfiladmin.html">Mi perfil</a></li>
+                <li><a href="nuevoadmin.html">Administradores</a></li>
+                <li><a href="nuevosemillero.html">Semilleros</a></li>
+                <li><a href="listadodecursos.html">Cursos</a></li>
+                <li><a href="nuevocurso.html">Agregar nuevo curso</a></li>
+                <li><span><a onclick="cerrarSession()" class="cta">Cerrar sesión</a></span></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+</header>
 
     <main>
+        <div id="container">
+            <div id="Titulo">
+                <center><h1>Agregar Nueva Categoria</h1></center>
+            </div>
+            
         <div class="form-container">
+                       
+                                <center><img  src="${pageContext.request.contextPath}/resources/imagenes/curso.png" width="220px" height="160px" ></center>
             <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
                     <form:label for="name-category" class="form-item" path="">Nombre</form:label>
-                    <form:input id="name-category"  class="form-item" path="nombreCategoria"></form:input>
+                    <input id="name-category"  class="form-item" path="nombreCategoria"></input>
 
                 </div>
                 <div class="form-control">
                     <form:label for="description" class="form-item" path="">Descripción</form:label>
-                    <form:textarea  id="description" class="form-item" path="descripcionCategoria" ></form:textarea>
+                    <textarea  id="description" class="form-item" path="descripcionCategoria" ></textarea>
                 </div>
                 <div class="form-control">
                     <label class="form-item" for="image-category" >Imagen</label>
@@ -70,6 +88,38 @@
             </form:form>
         </div>
     </main>
-
+    <!--Footer-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+    <div class="footer-content">
+        <h3>B1 SOFT LATINOAMERICA</h3>
+        <ul class="socials">
+            <li><a href="#"><i class="fab fa-facebook"></i></a>
+            <li><a href="#"><i class="fab fa-twitter"></i></a>
+            <li><a href="#"><i class="fab fa-google"></i></a>
+            <li><a href="#"><i class="fab fa-youtube"></i></a>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>2021. <span>B1 SOFT</span></p>
+    </div>
+</footer>
 </body>
+<script>
+    function cerrarSession() {
+        $(location).attr('href', "cerrarSession.html");
+    }
+</script>
 </html>
+
