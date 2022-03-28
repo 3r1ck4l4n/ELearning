@@ -30,10 +30,16 @@
                 text-decoration: none;
             }
             /*imagen de la card*/
+
+            .card2-image-img4 img{
+                width: 210px;
+                height: 210px;
+            }
             .container .card2 img{
                 width: 310px;
                 height: 210px;
             }
+
             .botoncurso{
                 padding: 9px 25px;
                 background-color: #B15D28;
@@ -151,6 +157,18 @@
             <p><center>Crea y da de alta nuevos cursos donde podrás subir videos y archivos. </center></p>
             <br>
             <a href="nuevocurso.html"><button class="botoncurso">Conoce más</button></a>
+            <br>
+            <br>
+        </div>
+        <div class="card2">
+            <div class="card2-image-img4">
+                <img src="${pageContext.request.contextPath}/resources/imagenes/addCategory.png">
+            </div>
+            <h4>AGREGAR CATEGORIA</h4>
+            <p><center><strong>Bienvenido administrador de B1 SOFT.</strong></center></p>
+            <p><center>Crea y da de alta nuevas categorias que se podrán utilizar al dar de alta nuevos cursos</center></p>
+            <br>
+            <a href="addCategory.html"><button class="botoncurso">Conoce más</button></a>
             <br>
             <br>
         </div>
