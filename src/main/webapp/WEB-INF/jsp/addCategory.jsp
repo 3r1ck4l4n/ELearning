@@ -17,13 +17,13 @@
     <link href="${pageContext.request.contextPath}/resources/css/addCategory.css" rel="stylesheet" />
      <link href="${pageContext.request.contextPath}/resources/css/newheader.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/resources/css/footer.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <title>Añadir categoría</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Añadir categoría</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="${pageContext.request.contextPath}/resources/js/header.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&di <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVsplay=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -32,6 +32,16 @@
     <title>Add Category</title>
 </head>
 <body>
+<%
+    String tipoUsuario = (String) session.getAttribute("tUsuario");
+    if (tipoUsuario != null) {
+        if (tipoUsuario.equals("Semillero")) {
+            response.sendRedirect("bienvenida.html");
+        }
+    } else {
+        response.sendRedirect("index.html");
+    }
+%>
 <header>
 
     <nav class="navbar">
@@ -64,14 +74,15 @@
             <div id="Titulo">
                 <center><h1>Agregar Nueva Categoria</h1></center>
             </div>
+        </div>
             
         <div class="form-container">
                        
-                                <center><img  src="${pageContext.request.contextPath}/resources/imagenes/curso.png" width="220px" height="160px" ></center>
+            <center><img  src="${pageContext.request.contextPath}/resources/imagenes/curso.png" width="220px" height="160px" ></center>
             <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
                     <form:label for="name-category" class="form-item" path="">Nombre</form:label>
-                    <input id="name-category"  class="form-item" path="nombreCategoria"></input>
+                    <input id="name-category"  class="form-item" path="nombreCategoria" />
 
                 </div>
                 <div class="form-control">
@@ -88,7 +99,7 @@
             </form:form>
         </div>
     </main>
-    <!--Footer-->
+<!--Footer-->
 <br>
 <br>
 <br>

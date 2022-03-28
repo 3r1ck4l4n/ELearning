@@ -1,16 +1,7 @@
 body{
     background:  #EAECE8;
 }
-*{
-    margin: 0;
-    padding: 0;
-    font-family:  Roboto;
-}
-
-
-nav{
-    width: 35%;
-}
+/**
 .img-container{
     max-width: 25%;
     max-height: 60px;
@@ -66,7 +57,7 @@ ul.nav{
 li.nav-item:hover{
     background-color: #B15D28;
 }
-
+**/
 .form-container{
 
     padding: 10px;
@@ -123,12 +114,7 @@ button.form-item:hover{
 
 }
 
-.body1 {
-    font-family: 'Varela Round', sans-serif;
-    justify-content: center;
-    background:  #EAECE8;
-    overflow-x: hidden;
-}
+
 .Titulo {
     color: black;
     text-align: center;
