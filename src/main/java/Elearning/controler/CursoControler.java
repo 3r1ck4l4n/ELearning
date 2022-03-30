@@ -4,6 +4,7 @@ import Elearning.dao.CategoriaDao;
 import Elearning.modelo.Categoria;
 import Elearning.modelo.Usuario;
 import Elearning.modelo.formModel.CursoModel;
+import Elearning.service.CategoryService;
 import Elearning.service.CursoService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,7 +34,9 @@ public class CursoControler {
     @Autowired
     private CursoService cursoService;
     @Autowired
-    private     CategoriaDao categoriaDao;
+    private CategoryService categoryService;
+    @Autowired
+    private CategoriaDao categoriaDao;
     @RequestMapping(value = "nuevocurso.html", method = RequestMethod.GET)
     public ModelAndView nuevocurso(Model model) {
         ModelAndView mo = new ModelAndView();
@@ -52,8 +55,9 @@ public class CursoControler {
     //Listado de los curso de acuerdo a su categoria
      @RequestMapping(value = "Cartas.html", method = RequestMethod.GET)
      public String listadoCursos(@RequestParam("categoria") String categoria,Model model, HttpServletRequest request){
-         return cursoService.listadoCursos(categoria,model);
-     }
+         //return cursoService.listadoCursos(categoria,model);
+        return categoryService.findCoursesByCategory(categoria, model, request);
+    }
    
    //Este es el del crud de cursos para Listar Actualizar y Eliminar  
     @RequestMapping(value = "listadodecursos.html", method = RequestMethod.GET)

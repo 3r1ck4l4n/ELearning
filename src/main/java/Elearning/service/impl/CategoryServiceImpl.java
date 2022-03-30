@@ -3,6 +3,8 @@ package Elearning.service.impl;
 import Elearning.dao.CategoriaDao;
 import Elearning.dao.UsuarioDao;
 import Elearning.modelo.Categoria;
+import Elearning.modelo.Curso;
+import Elearning.modelo.MiCurso;
 import Elearning.modelo.Usuario;
 import Elearning.modelo.formModel.CursoModel;
 import Elearning.service.CategoryService;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("CategoryService")
 public class CategoryServiceImpl implements CategoryService {
@@ -46,11 +50,16 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public String findCoursesByCategory(String categoria, Model model, HttpServletRequest request) {
-        Usuario usuario = new Usuario();
         HttpSession session = request.getSession();
-        usuario = usuarioDao.getUsuario((int) session.getAttribute("UsuarioID"));
-
-
+        Usuario usuario = usuarioDao.getUsuario((int) session.getAttribute("UsuarioID"));
+        List<Curso> misCursos = new ArrayList<Curso>();
+        usuario.getMisCursos().forEach(miCurso -> {
+            if (miCurso.getCurso().getCategoria().getNombreCategoria().equals(categoria) && (miCurso.isObligatorio() || miCurso.isSugerido())) {
+                misCursos.add(miCurso.getCurso());
+            }
+        });
+        model.addAttribute("categoria", categoria);
+        model.addAttribute("cursos", misCursos);
         return "Cartas";
     }
 
