@@ -15,8 +15,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="${pageContext.request.contextPath}/resources/css/addCategory.css" rel="stylesheet" />
-     <link href="${pageContext.request.contextPath}/resources/css/newheader.css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/resources/css/footer.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/kendo.common.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/kendo.black.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/newheader.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css" />
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/kendo.all.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/header.js" defer></script>
     <title>Añadir categoría</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -82,12 +89,12 @@
             <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
                     <form:label for="name-category" class="form-item" path="">Nombre</form:label>
-                    <input id="name-category"  class="form-item" path="nombreCategoria" />
+                    <input id="name-category"  class="form-item k-textbox" path="nombreCategoria" />
 
                 </div>
                 <div class="form-control">
                     <form:label for="description" class="form-item" path="">Descripción</form:label>
-                    <textarea  id="description" class="form-item" path="descripcionCategoria" ></textarea>
+                    <textarea  id="description" class="form-item k-textbox" path="descripcionCategoria" ></textarea>
                 </div>
                 <div class="form-control">
                     <label class="form-item" for="image-category" >Imagen</label>

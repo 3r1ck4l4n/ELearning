@@ -13,6 +13,4 @@ public interface CursoDao {
     public Curso update(final Curso elCurso);
     public boolean delete(final Curso elCurso);
     public List<Curso> findbyCategory(String categoria);
-    
-    
 }

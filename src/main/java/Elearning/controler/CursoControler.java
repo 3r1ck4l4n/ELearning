@@ -51,7 +51,7 @@ public class CursoControler {
     
     //Listado de los curso de acuerdo a su categoria
      @RequestMapping(value = "Cartas.html", method = RequestMethod.GET)
-     public String listadoCursos(@RequestParam("categoria") String categoria,Model model){
+     public String listadoCursos(@RequestParam("categoria") String categoria,Model model, HttpServletRequest request){
          return cursoService.listadoCursos(categoria,model);
      }
    
