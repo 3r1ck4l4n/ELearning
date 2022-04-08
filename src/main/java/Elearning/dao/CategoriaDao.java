@@ -10,4 +10,5 @@ public interface CategoriaDao {
     public boolean createCategory(Categoria categoria);
     public boolean updateCategory(Categoria categoria);
     public Categoria findById(int idCategory);
+    public Categoria bringAllCategories(String nombreCategoria);
 }

@@ -82,7 +82,7 @@ public class CursoServiceImpl implements CursoService {
                 usuarioDao.update(user);
 **/
                 //Almaceno en un variable global el id del curso que se creo en ese momento
-                //session.setAttribute("CursoID", entidad.getIdCurso());
+                session.setAttribute("CursoID", entidad.getIdCurso());
                 System.out.println("La Imagen se Guardo correctamente");
                 return "redirect:/anadirmodulos.html";
             } else {

@@ -4,12 +4,9 @@ import Elearning.dao.CategoriaDao;
 import Elearning.modelo.Categoria;
 import Elearning.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,5 +80,18 @@ public class CategoriaDaoImpl implements CategoriaDao {
 
         return categoria;
     }
+
+    @Override
+    public Categoria bringAllCategories(String nombreCategoria) {
+        Categoria categoria = new Categoria();
+        try{
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+            categoria = session.get(Categoria.class, nombreCategoria);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return categoria;
+    }
+
 }
 

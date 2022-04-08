@@ -18,7 +18,8 @@ public class ValidateController {
     public String validateCourse(@ModelAttribute MiCurso miCurso){
         System.out.println(miCurso);
         boolean status = miCursoService.updateMiCurso(miCurso);
-        String redirect = "";
+        String redirect =
+                "";
         if (status){
             redirect  = "redirect:/updateAccess.html?idUsuario="+miCurso.getIdUsuario();
         }

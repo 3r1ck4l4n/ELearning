@@ -39,14 +39,18 @@ public class Categoria implements Serializable {
     @Setter
     @Column(name = "ID_CATEGORIA")
     private int idCategoria;
+
     @Column(name = "NOMBRE_CATEGORIA")
     @Getter
     @Setter
     private String nombreCategoria;
+
     @Setter
     @Getter
     @Column(name = "DESCRIPCION_CATEGORIA")
     private String descripcionCategoria;
+
+    //Relacion de un usuario a muchos cursos
     @Getter
     @Setter
     @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})

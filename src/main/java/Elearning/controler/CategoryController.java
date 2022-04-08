@@ -1,7 +1,9 @@
 package Elearning.controler;
 
 import Elearning.dao.CategoriaDao;
+import Elearning.dao.impl.CategoriaDaoImpl;
 import Elearning.modelo.Categoria;
+import Elearning.modelo.MiCurso;
 import Elearning.service.CategoryService;
 import com.dropbox.core.DbxException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,15 @@ public class CategoryController {
         }
         return view;
     }
+    /**
+     * Listado de todas las categorias para las plantillas en el index de Usuario
+     */
+    @RequestMapping(value = "changeCard.html")
+    public String putCategories(Model model){
+        Categoria categoria = new Categoria();
+        model.addAttribute("listCategoria",categoria);
+        return "bienvenida";
 
+    }
 
 }

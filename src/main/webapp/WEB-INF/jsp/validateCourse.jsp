@@ -1,4 +1,4 @@
-<%--
+<%@ page import="javax.swing.*" %><%--
   Created by IntelliJ IDEA.
   Date: 04/03/2022
   Time: 11:29
@@ -15,6 +15,8 @@
     <link href="${pageContext.request.contextPath}/resources/css/validateCourse.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/resources/css/newheader.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/resources/css/footer.css" rel="stylesheet"/>
+    <!--<script src="${pageContext.request.contextPath}/resources/js/validateCheck.js" defer></script> -->
+
     <title>Valida Cursos</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,6 +28,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    <!-- Kendo para ButtonGroup
+    <base href="https://demos.telerik.com/kendo-ui/treeview/index">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default-v2.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script> -->
 
 </head>
 
@@ -89,35 +97,50 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="miCurso" items="${listMiCurso}">
-                    <form:form method="post" action="validateCourse.html" modelAttribute="updateMiCurso">
 
-                        <form:hidden path="idUsuario" value="${miCurso.idUsuario}"/>
-                        <form:hidden path="idCurso" value="${miCurso.idCurso}"/>
-                        <c:choose>
-                            <c:when test="${miCurso.obligatorio}">
-                                <td><form:checkbox path="obligatorio" value="1" checked="checked"/></td>
-                            </c:when>
-                            <c:otherwise>
-                                <td><form:checkbox path="obligatorio" value="1" /></td>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:choose>
-                            <c:when test="${miCurso.sugerido}">
-                                <td><form:checkbox path="sugerido" value="1" checked="checked"/></td>
-                            </c:when>
-                            <c:otherwise>
-                                <td><form:checkbox path="sugerido" value="1"  /></td>
-                            </c:otherwise>
-                        </c:choose>
-                        <td> ${miCurso.curso.nombre}</td>
-                        <td> ${miCurso.curso.categoria.nombreCategoria}</td>
-                        <td>
-                            <button type="submit">Guardar</button>
-                        </td>
-                        </tr>
-                    </form:form>
-                </c:forEach>
+                    <script>
+                        function onlyOne(checkbox) {
+                            var checkboxes = document.getElement()
+                            checkboxes.forEach((item) => {
+                                if (item !== checkbox) item.checked = false
+                            })
+                        }
+                    </script>
+
+
+                    <c:forEach var="miCurso" items="${listMiCurso}">
+                        <form:form method="post" action="validateCourse.html" modelAttribute="updateMiCurso">
+
+                            <form:hidden path="idUsuario" value="${miCurso.idUsuario}"/>
+                            <form:hidden path="idCurso" value="${miCurso.idCurso}"/>
+
+                                    <c:choose>
+                                        <c:when test="${miCurso.obligatorio}">
+                                            <td><form:checkbox id="check" path="obligatorio" value="1" checked="checked" onclick="onlyOne(this)" /></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><form:checkbox id="check" path="obligatorio" value="1" onclick="onlyOne(this)"/></td>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                    <c:choose>
+                                        <c:when test="${miCurso.sugerido}">
+                                            <td><form:checkbox id="check" path="sugerido" value="1" checked="checked" onclick="onlyOne(this)"/></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><form:checkbox id="check" path="sugerido" value="1" onclick="onlyOne(this)"/></td>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                            <td> ${miCurso.curso.nombre}</td>
+                            <td> ${miCurso.curso.categoria.nombreCategoria}</td>
+
+                            <td>
+                                <button type="submit">Guardar</button>
+                            </td>
+                            <tr>
+                        </form:form>
+                    </c:forEach>
                 </tbody>
             </table>
     </div>

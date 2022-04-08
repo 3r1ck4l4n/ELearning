@@ -89,12 +89,12 @@
             <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
                     <form:label for="name-category" class="form-item" path="">Nombre</form:label>
-                    <input id="name-category"  class="form-item k-textbox" path="nombreCategoria" />
+                    <form:input id="name-category"  class="form-item k-textbox" path="nombreCategoria" />
 
                 </div>
                 <div class="form-control">
                     <form:label for="description" class="form-item" path="">Descripción</form:label>
-                    <textarea  id="description" class="form-item k-textbox" path="descripcionCategoria" ></textarea>
+                    <form:textarea  id="description" class="form-item k-textbox" path="descripcionCategoria" ></form:textarea>
                 </div>
                 <div class="form-control">
                     <label class="form-item" for="image-category" >Imagen</label>

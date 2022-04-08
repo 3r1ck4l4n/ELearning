@@ -127,6 +127,7 @@ public class CursoControler {
 
         Usuario us = mapper.readValue(usuario, Usuario.class);
 
+
         System.out.println(us);
         List<Categoria> categorias = categoriaDao.getAll();
         model.addAttribute("usuario", us);
@@ -136,7 +137,5 @@ public class CursoControler {
         return "selectCourses";
     }
 
-
-    
 
 }

@@ -127,6 +127,7 @@ public class HomeController {
      public ModelAndView semillero(){
          ModelAndView mo = new ModelAndView();
         mo.setViewName("bienvenida");
+
         return mo;
     }
 }

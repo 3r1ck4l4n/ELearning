@@ -209,43 +209,54 @@
 
                 </style>
             </div>
+
             <div id="Botones">
                 <div id="Subtitulo">
                     <center><h2>Áreas de Interés</h2></center>
                 </div>
 
                 <div class="container1">
-                    <div class="card1">
-                        <a href="Cartas.html?categoria=Back-End"> <img src="${pageContext.request.contextPath}/resources/imagenes/Back.jpg"></a>
-                        <br>
-                        <br>
-                        <h4>Backend</h4>
-                    </div>
-
-                    <div class="card1">
-                        <a href="Cartas.html?categoria=Front-End"><img src="${pageContext.request.contextPath}/resources/imagenes/front_1.jpg"></a>
-                        <br>
-                        <br>
-                        <h4>Frontend</h4>
-                    </div>
-
-                    <div class="card1">
-                        <a href="Cartas.html?categoria=Bases de Datos"><img src="${pageContext.request.contextPath}/resources/imagenes/DB.jpg"></a>
-                        <br>
-                        <br>
-                        <h4>Bases de Datos</h4>
-                    </div>
-
-                    <div class="card1">
-                        <a href="Cartas.html?categoria=Marketing Digital"> <img src="${pageContext.request.contextPath}/resources/imagenes/marketingdigital.jpg"></a>
-                        <br>
-                        <br>
-                        <h4>Marketing Digital</h4>
-                    </div>
-
+                    <c:forEach var = "categories" items = "${listCategoria}">
+                        <div class="card1">
+                            <a href="Cartas.html?categoria=${listCategoria.nombreCategoria}">
+                            <img src="${listCategoria.caratula}" alt= "Caratula"></a>
+                            <br>
+                            <br>
+                            <h4>${listCategoria.nombreCategoria}</h4>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
+
+                    <!--
+                        <div class="card1">
+                            <a href="Cartas.html?categoria=Back-End"> <img src="${pageContext.request.contextPath}/resources/imagenes/Back.jpg"></a>
+                            <br>
+                            <br>
+                            <h4>Backend</h4>
+                        </div>
+
+                        <div class="card1">
+                            <a href="Cartas.html?categoria=Front-End"><img src="${pageContext.request.contextPath}/resources/imagenes/front_1.jpg"></a>
+                            <br>
+                            <br>
+                            <h4>Frontend</h4>
+                        </div>
+
+                        <div class="card1">
+                            <a href="Cartas.html?categoria=Bases de Datos"><img src="${pageContext.request.contextPath}/resources/imagenes/DB.jpg"></a>
+                            <br>
+                            <br>
+                            <h4>Bases de Datos</h4>
+                        </div>
+
+                        <div class="card1">
+                            <a href="Cartas.html?categoria=Marketing Digital"> <img src="${pageContext.request.contextPath}/resources/imagenes/marketingdigital.jpg"></a>
+                            <br>
+                            <br>
+                            <h4>Marketing Digital</h4>
+                        </div> -->
         <!--Footer-->
         <br>
         <br>
