@@ -88,21 +88,20 @@
             <center><img  src="${pageContext.request.contextPath}/resources/imagenes/curso.png" width="220px" height="160px" ></center>
             <form:form action="createCategory.html" modelAttribute="category" method="post" enctype="multipart/form-data">
                 <div class="form-control">
-                    <form:label for="name-category" class="form-item" path="">Nombre</form:label>
-                    <form:input id="name-category"  class="form-item k-textbox" path="nombreCategoria" />
-
+                    <form:label for="name-category" class="form-item" path=""></form:label>
+                   <input id="simple-input" type="text" placeholder="Nombre" class="k-textbox" style="width: 100%;" name="nombre" />
                 </div>
                 <div class="form-control">
-                    <form:label for="description" class="form-item" path="">Descripción</form:label>
-                    <form:textarea  id="description" class="form-item k-textbox" path="descripcionCategoria" ></form:textarea>
+                    <form:label for="description" class="form-item" path=""></form:label>
+                   <input id="simple-input" type="text" placeholder="Descripción" class="k-textbox" style="width: 100%;" name="descripcion"  />
                 </div>
                 <div class="form-control">
                     <label class="form-item" for="image-category" >Imagen</label>
                     <input class="form-item" id="image-category" name="imgCategory" type="file" />
                 </div>
-                <button class="form-item">
-                    Enviar
-                </button>
+               
+                     <center><button class="k-button" type="submit">Guardar categoria</button>&nbsp;</center> 
+              
             </form:form>
         </div>
     </main>
