@@ -12,8 +12,8 @@ and open the template in the editor.
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin-top:0px;
+    padding:0;
 }
 
 .navbar {
