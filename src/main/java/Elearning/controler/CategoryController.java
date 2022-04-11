@@ -1,9 +1,6 @@
 package Elearning.controler;
 
-import Elearning.dao.CategoriaDao;
-import Elearning.dao.impl.CategoriaDaoImpl;
 import Elearning.modelo.Categoria;
-import Elearning.modelo.MiCurso;
 import Elearning.service.CategoryService;
 import com.dropbox.core.DbxException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 public class CategoryController {
     @Autowired
-    private CategoriaDao categoriaDao;
-    @Autowired
     private CategoryService categoryService;
+
 
     @GetMapping("addCategory.html")
     public String addCategory(Model model) {
@@ -41,16 +35,6 @@ public class CategoryController {
             view = "addCategory";
         }
         return view;
-    }
-    /**
-     * Listado de todas las categorias para las plantillas en el index de Usuario
-     */
-    @RequestMapping(value = "changeCard.html")
-    public String putCategories(Model model){
-        Categoria categoria = new Categoria();
-        model.addAttribute("listCategoria",categoria);
-        return "bienvenida";
-
     }
 
 }

@@ -63,6 +63,11 @@ public class CategoryServiceImpl implements CategoryService {
         return "Cartas";
     }
 
+    @Override
+    public List<Categoria> getAll() {
+        return categoriaDao.getAll();
+    }
+
     private String getExtention(String string) {
         return string.substring(string.lastIndexOf("."), string.length());
 
@@ -71,4 +76,5 @@ public class CategoryServiceImpl implements CategoryService {
     public static String reemplazar(String cadena, String busqueda, String reemplazo) {
         return cadena.replaceAll(busqueda, reemplazo);
     }
+
 }

@@ -1,7 +1,9 @@
 
 package Elearning.controler;
 
+import Elearning.modelo.Categoria;
 import Elearning.modelo.Usuario;
+import Elearning.service.CategoryService;
 import Elearning.service.UsuarioService;
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,8 @@ public class HomeController {
     
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private CategoryService categoryService;
     
     //Este contrlador para nada debe cambiar de Metodo DEVER SER SI O SI GET
     @RequestMapping(value = "index.html", method = RequestMethod.GET)
@@ -61,6 +66,7 @@ public class HomeController {
         ModelAndView mo = new ModelAndView();
          switch (usuarioService.loginUser(request)) {
             case "Semillero":
+                mo.addObject("categorias", categoryService.getAll());
                 mo.setViewName("bienvenida");
                 break;
             case "Administrador":

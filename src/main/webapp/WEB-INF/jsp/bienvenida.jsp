@@ -216,21 +216,18 @@
                 </div>
 
                 <div class="container1">
-                    <c:forEach var = "categories" items = "${listCategoria}">
+                    <c:forEach var = "categoria" items = "${categorias}">
                         <div class="card1">
-                            <a href="Cartas.html?categoria=${listCategoria.nombreCategoria}">
-                            <img src="${listCategoria.caratula}" alt= "Caratula"></a>
+                            <a href="Cartas.html?categoria=${categoria.nombreCategoria}">
+                            <img src="${categoria.caratula}" alt= "Caratula"></a>
                             <br>
                             <br>
-                            <h4>${listCategoria.nombreCategoria}</h4>
+                            <h4>${categoria.nombreCategoria}</h4>
                         </div>
                     </c:forEach>
-                </div>
-            </div>
-        </div>
 
-                    <!--
-                        <div class="card1">
+
+                        <!--<div class="card1">
                             <a href="Cartas.html?categoria=Back-End"> <img src="${pageContext.request.contextPath}/resources/imagenes/Back.jpg"></a>
                             <br>
                             <br>
@@ -257,6 +254,9 @@
                             <br>
                             <h4>Marketing Digital</h4>
                         </div> -->
+                </div>
+            </div>
+        </div>
         <!--Footer-->
         <br>
         <br>
