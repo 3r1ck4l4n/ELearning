@@ -225,35 +225,6 @@
                             <h4>${categoria.nombreCategoria}</h4>
                         </div>
                     </c:forEach>
-
-
-                        <!--<div class="card1">
-                            <a href="Cartas.html?categoria=Back-End"> <img src="${pageContext.request.contextPath}/resources/imagenes/Back.jpg"></a>
-                            <br>
-                            <br>
-                            <h4>Backend</h4>
-                        </div>
-
-                        <div class="card1">
-                            <a href="Cartas.html?categoria=Front-End"><img src="${pageContext.request.contextPath}/resources/imagenes/front_1.jpg"></a>
-                            <br>
-                            <br>
-                            <h4>Frontend</h4>
-                        </div>
-
-                        <div class="card1">
-                            <a href="Cartas.html?categoria=Bases de Datos"><img src="${pageContext.request.contextPath}/resources/imagenes/DB.jpg"></a>
-                            <br>
-                            <br>
-                            <h4>Bases de Datos</h4>
-                        </div>
-
-                        <div class="card1">
-                            <a href="Cartas.html?categoria=Marketing Digital"> <img src="${pageContext.request.contextPath}/resources/imagenes/marketingdigital.jpg"></a>
-                            <br>
-                            <br>
-                            <h4>Marketing Digital</h4>
-                        </div> -->
                 </div>
             </div>
         </div>

@@ -291,7 +291,7 @@
                         <li><a href="nuevosemillero.html">Semilleros</a></li>
                         <li><a href="listadodecursos.html">Cursos</a></li>
                         <li><a href="nuevocurso.html">Agregar nuevo curso</a></li>
-                        <!--<li><a href="#">Cerrar sesión</a></li>-->
+                        <li><a href="addCategory.html">Añadir categoria</a></li>
                         <li><span><a onclick="cerrarSession()" class="cta">Cerrar sesión</a></span></li>
                     </ul>
                 </div>
@@ -689,7 +689,7 @@
     <br>
     <footer>
         <div class="footer-content">
-            <h3>B1 SOFT</h3>
+            <h3>B1 SOFT LATINOAMERICA</h3>
             <ul class="socials">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
