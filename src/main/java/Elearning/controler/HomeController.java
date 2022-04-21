@@ -56,12 +56,13 @@ public class HomeController {
     }
     
     @RequestMapping(value = "validador.html",method = RequestMethod.POST)
+
     public ModelAndView validador(HttpServletRequest request, HttpServletResponse response){
         ModelAndView mo = new ModelAndView();
          switch (usuarioService.loginUser(request)) {
             case "Semillero":
-                mo.addObject("categorias", categoryService.getAll());
                 mo.setViewName("bienvenida");
+                mo.addObject("categorias", categoryService.getAll());
                 break;
             case "Administrador":
                 mo.setViewName("admin");
@@ -126,7 +127,8 @@ public class HomeController {
      @RequestMapping("bienvenida.html")
      public ModelAndView semillero(){
          ModelAndView mo = new ModelAndView();
-        mo.setViewName("bienvenida");
+         mo.addObject("categorias", categoryService.getAll());
+         mo.setViewName("bienvenida");
 
         return mo;
     }

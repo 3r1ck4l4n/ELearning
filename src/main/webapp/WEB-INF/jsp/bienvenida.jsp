@@ -129,7 +129,7 @@
             <nav class="navbar">
                 <!--<div class="brand-title">Brand Name</div>-->
                 <div class="logo">
-                    <div>
+                    <div method="post">
                         <a href="bienvenida.html"><img src="${pageContext.request.contextPath}/resources/imagenes/B1SOFT-LOGO.gif"></a>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
 
             <div id="Botones">
                 <div id="Subtitulo">
-                    <center><h2>Áreas de Interés</h2></center>
+                    <center><h2>Categorias y los cursos</h2></center>
                 </div>
 
                 <div class="container1">
