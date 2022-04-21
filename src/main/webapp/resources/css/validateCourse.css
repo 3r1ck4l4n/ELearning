@@ -128,3 +128,17 @@ thead{
     width: 80%;
     margin: auto;
 }
+
+.form-container-1{
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #203853;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .5);
+}
+
+.form-container-1 div{
+    width: 80%;
+    margin: auto;
+}

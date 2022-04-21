@@ -139,10 +139,20 @@
                                 <button type="submit">Guardar</button>
                             </td>
                             <tr>
+                                
                         </form:form>
                     </c:forEach>
                 </tbody>
             </table>
+        <div class="form-container-1">  
+          <form method="post" action="validateCourse.html" modelAttribute="newcourse">
+              <select>
+               
+   
+              </select>
+          </form>   
+          </div>
+          
     </div>
 
 

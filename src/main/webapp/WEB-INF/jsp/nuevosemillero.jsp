@@ -164,6 +164,7 @@
                 #DivSsemilleros img{
                     width: 80%;
                 }
+                
             }
 
         </style>
@@ -253,7 +254,7 @@
                                         </svg>
                                     </button>
                                 </a>
-
+                                      
                             </td>
                         </tr>
                     </c:forEach>
