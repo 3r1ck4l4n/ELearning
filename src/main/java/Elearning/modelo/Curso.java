@@ -63,6 +63,7 @@ public class Curso implements Serializable {
     @OneToMany(mappedBy = "curso", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     private List<MiCurso> miscursos;
 
+
     @ManyToOne
     @JoinColumn(name = "ID_CATEGORIA", insertable = false, updatable = false)
     @Getter

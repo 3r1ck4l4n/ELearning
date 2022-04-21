@@ -162,7 +162,10 @@
         </div>
         <div class="card2">
             <div class="card2-image-img4">
+
                 <img src="${pageContext.request.contextPath}/resources/imagenes/cursos.png">
+
+  
             </div>
             <h4>AGREGAR CATEGORIA</h4>
             <p><center><strong>Bienvenido administrador de B1 SOFT.</strong></center></p>

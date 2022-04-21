@@ -1,17 +1,14 @@
 
 package Elearning.controler;
 
-import Elearning.modelo.Usuario;
+
+import Elearning.service.CategoryService;
 import Elearning.service.UsuarioService;
-import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,6 +24,8 @@ public class HomeController {
     
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private CategoryService categoryService;
     
     //Este contrlador para nada debe cambiar de Metodo DEVER SER SI O SI GET
     @RequestMapping(value = "index.html", method = RequestMethod.GET)
@@ -57,11 +56,13 @@ public class HomeController {
     }
     
     @RequestMapping(value = "validador.html",method = RequestMethod.POST)
+
     public ModelAndView validador(HttpServletRequest request, HttpServletResponse response){
         ModelAndView mo = new ModelAndView();
          switch (usuarioService.loginUser(request)) {
             case "Semillero":
                 mo.setViewName("bienvenida");
+                mo.addObject("categorias", categoryService.getAll());
                 break;
             case "Administrador":
                 mo.setViewName("admin");
@@ -126,7 +127,8 @@ public class HomeController {
      @RequestMapping("bienvenida.html")
      public ModelAndView semillero(){
          ModelAndView mo = new ModelAndView();
-        mo.setViewName("bienvenida");
+         mo.addObject("categorias", categoryService.getAll());
+         mo.setViewName("bienvenida");
 
         return mo;
     }

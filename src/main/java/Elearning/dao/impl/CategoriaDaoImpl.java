@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository("CategoriaDao")
 public class CategoriaDaoImpl implements CategoriaDao {
@@ -78,18 +79,6 @@ public class CategoriaDaoImpl implements CategoriaDao {
             e.printStackTrace();
         }
 
-        return categoria;
-    }
-
-    @Override
-    public Categoria bringAllCategories(String nombreCategoria) {
-        Categoria categoria = new Categoria();
-        try{
-            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-            categoria = session.get(Categoria.class, nombreCategoria);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         return categoria;
     }
 

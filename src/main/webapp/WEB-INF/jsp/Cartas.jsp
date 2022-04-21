@@ -124,7 +124,7 @@
         <div class="cards-container">
         <c:forEach items="${cursos}" var="curso"> 
             <div class="k-card">
-                <a href="mediacursos.html?idCurso=${curso.idCurso}"><img class="k-card-image"  src="${curso.caratula}"/></a>
+                <a href="mediacursos.html?idCurso=${curso.idCurso}"><img class="k-card-image"  src="${curso.caratula}" alt="SinCaratula"/></a>
                 <div class="k-card-body">
                     <center> <h3><c:out value="${curso.nombre}"></c:out></h3> </center> 
                     </div>

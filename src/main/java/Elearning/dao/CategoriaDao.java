@@ -3,6 +3,7 @@ package Elearning.dao;
 import Elearning.modelo.Categoria;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoriaDao {
 
@@ -10,5 +11,4 @@ public interface CategoriaDao {
     public boolean createCategory(Categoria categoria);
     public boolean updateCategory(Categoria categoria);
     public Categoria findById(int idCategory);
-    public Categoria bringAllCategories(String nombreCategoria);
 }
