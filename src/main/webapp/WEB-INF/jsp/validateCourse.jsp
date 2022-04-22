@@ -145,16 +145,24 @@
                     </c:forEach>
                 </tbody>
             </table>
-        <div class="form-container-1">  
-          <form method="post" action="validateCourse.html" modelAttribute="newcourse">
-              <select>
-               
-   
-              </select>
-          </form>   
-          </div>
-          
     </div>
+
+    <center><div class="form-container-1">
+        <form:form method="post" action="addCourse.html" modelAttribute="updateMiCurso">
+            <form:hidden path="idUsuario" value="${listMiCurso[0].usuarioAc.idUsuario}"/>
+            <form:hidden path="sugerido" value="${false}"/>
+            <form:hidden path="obligatorio" value="${false}"/>
+            <form:hidden path="progreso" value="${0}"/>
+            <form:select path="idCurso">
+                <c:forEach var="curso" items="${cursos}">
+                    <option value = "${curso.idCurso}">${curso.nombre}</option>
+                </c:forEach>
+
+            </form:select>
+            <button type="submit">Añadir</button>
+        </form:form>
+
+    </div></center>
 
 
 </main>

@@ -56,5 +56,15 @@ public class MiCursoServiceImpl implements MiCursoService {
         return false;
     }
 
+    @Override
+    public boolean createMiCurso(MiCurso miCurso) {
+        try{
+            miCursoDao.create(miCurso);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
 
 }

@@ -138,6 +138,11 @@ public class CursoServiceImpl implements CursoService {
         return flag;
     }
 
+    @Override
+    public List<Curso> getAll() {
+        return cursoDao.findAll();
+    }
+
     private String guardarDropBox(CursoModel CursoF) throws IOException, FileNotFoundException, DbxException {
         JavaDropBox jv = new JavaDropBox();
         String enlace = "";
