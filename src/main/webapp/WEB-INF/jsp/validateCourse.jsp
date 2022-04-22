@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/kendo.black.min.css" />
     <link href="${pageContext.request.contextPath}/resources/css/validateCourse.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/resources/css/newheader.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/resources/css/footer.css" rel="stylesheet"/>
@@ -147,19 +148,22 @@
             </table>
     </div>
 
+    <div class="upText">
+        <h3>Añadir Cursos</h3>
+    </div>
     <center><div class="form-container-1">
         <form:form method="post" action="addCourse.html" modelAttribute="updateMiCurso">
             <form:hidden path="idUsuario" value="${listMiCurso[0].usuarioAc.idUsuario}"/>
             <form:hidden path="sugerido" value="${false}"/>
             <form:hidden path="obligatorio" value="${false}"/>
             <form:hidden path="progreso" value="${0}"/>
-            <form:select path="idCurso">
+            <form:select path="idCurso" cssClass="k-textbox">
                 <c:forEach var="curso" items="${cursos}">
                     <option value = "${curso.idCurso}">${curso.nombre}</option>
                 </c:forEach>
 
             </form:select>
-            <button type="submit">Añadir</button>
+            <button type="submit" class="k-button">Añadir</button>
         </form:form>
 
     </div></center>

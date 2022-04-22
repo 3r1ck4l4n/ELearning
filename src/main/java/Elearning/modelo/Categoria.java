@@ -38,7 +38,7 @@ public class Categoria implements Serializable {
     @Getter
     @Setter
     @Column(name = "ID_CATEGORIA")
-    private int idCategoria;
+    private Integer idCategoria;
 
     @Column(name = "NOMBRE_CATEGORIA")
     @Getter
