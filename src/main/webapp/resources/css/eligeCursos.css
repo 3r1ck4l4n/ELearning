@@ -88,3 +88,55 @@ body {
 .container-head-form h2{
     color: #B15D28;
 }
+   .form-container{
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #fee9do;
+    box-shadow: 8px 10px 10px rgba(0,0,0, .5);
+    padding-left: 0px;
+}
+
+.form-container div{
+    width: 90%;
+    margin: auto;
+}
+
+.k-form-buttons{
+
+    width: 40%;
+   margin: 0 auto !important;
+    align-content: center;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+ 
+
+}
+.button-submit
+{
+    display:block !important;
+    margin: 0 auto !important;
+}
+
+.k-button:hover{
+    background-color: white;
+    color: black;
+    filter: brightness(1.05);
+    padding: 5px;
+       
+}
+
+.k-textbox{
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    color: #fff;
+    width: 50%;
+    padding-left: 10px;
+}
+.title-select{
+   font-family: 'Varela Round', sans-serif;
+}

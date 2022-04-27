@@ -30,6 +30,7 @@
                 <prop key="semilleroRegistro.html">homeController</prop>
                 <prop key="existe.html">homeController</prop>
                 <prop key="exito.html">homeController</prop>
+                <prop key="validateUser.html">homeController</prop>
                 <prop key="cerrarSession.html">homeController</prop>
                 <prop key="regresa.html">homeController</prop>
                 <prop key="enviarCorreo.html">homeController</prop>

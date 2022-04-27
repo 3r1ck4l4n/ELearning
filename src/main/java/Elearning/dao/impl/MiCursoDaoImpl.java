@@ -262,5 +262,27 @@ public class MiCursoDaoImpl implements MiCursoDao {
     public MiCurso AsginProgreso(int i, int i1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+ 
+
+    @Override
+    public List<MiCurso> getAll() {
+        List<MiCurso> curso = new ArrayList<>();
+        Session mySession = HibernateUtil.getSessionFactory().getCurrentSession();
+        //Ocupamos la transaccion en caso de error la base de datos se restaura a como estaba
+        Transaction transaccion = mySession.getTransaction();
+        try {
+
+            transaccion.begin();
+            Query query = mySession.createQuery("from MiCurso ", MiCurso.class);
+            curso = query.list();
+            transaccion.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mySession.close();
+        }
+
+        return curso;
+    }
 
 }

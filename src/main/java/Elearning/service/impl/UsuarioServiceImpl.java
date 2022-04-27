@@ -225,6 +225,19 @@ public class UsuarioServiceImpl implements UsuarioService {
                     session.setAttribute("tUsuario", rol);
                     return rol;
                 } else if (rol.equals("Semillero")) {
+                  
+                 List<MiCurso> cursoValidate =  new ArrayList<MiCurso>();
+                   user.getMisCursos().forEach(miCurso ->{ 
+                 if((miCurso.isSugerido()||miCurso.isObligatorio()))cursoValidate.add(miCurso)  ;   
+                 });   
+              
+                  if(cursoValidate.isEmpty())return "No Cursos" ;
+                  
+
+        
+
+         
+
                     session.setAttribute("usuario", user.getNombre());
                     session.setAttribute("tUsuario", rol);
                     session.setAttribute("datosUsuario", user);

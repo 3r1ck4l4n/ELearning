@@ -62,10 +62,14 @@ public class HomeController {
          switch (usuarioService.loginUser(request)) {
             case "Semillero":
                 mo.setViewName("bienvenida");
+               
                 mo.addObject("categorias", categoryService.getAll());
                 break;
             case "Administrador":
                 mo.setViewName("admin");
+                break;
+            case "No Cursos":
+                mo.setViewName("validateUser");
                 break;
             default:
                 mo.setViewName("error");
@@ -130,6 +134,12 @@ public class HomeController {
          mo.addObject("categorias", categoryService.getAll());
          mo.setViewName("bienvenida");
 
+        return mo;
+    }
+ @RequestMapping("validateUser.html")
+    public ModelAndView validateUser(){
+        ModelAndView mo = new ModelAndView();
+        mo.setViewName("validateUser");
         return mo;
     }
 }

@@ -28,15 +28,29 @@ public class MiCurso implements Serializable {
     @Column(name = "idCurso")
     private int idCurso;
 
-    @Getter
-    @Setter
+ 
     @Column(name = "sugerido")
     private boolean sugerido;
 
     @Column(name = "obligatorio")
-    @Getter
-    @Setter
+
     private boolean obligatorio;
+
+    public boolean isSugerido() {
+        return sugerido;
+    }
+
+    public void setSugerido(boolean sugerido) {
+        this.sugerido = sugerido;
+    }
+
+    public boolean isObligatorio() {
+        return obligatorio;
+    }
+
+    public void setObligatorio(boolean obligatorio) {
+        this.obligatorio = obligatorio;
+    }
 
     public MiCurso() {
     }

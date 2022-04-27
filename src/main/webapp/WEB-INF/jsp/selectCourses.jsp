@@ -24,6 +24,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href="${pageContext.request.contextPath}/resources/css/eligeCursos.css" rel="stylesheet" />
     
+
+    
     <title>Seleccione los cursos de su preferencia</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -45,7 +47,7 @@
 
 <div class="title-select">
     <h1>Welcome ${usuario.nombre}!</h1>
-    <p> Selecciona los cursos que te gustaría ver!* <br> <small>*Estan sujetos a aprobación</small></p>
+    <p> Selecciona los cursos que te gustaría ver! <br> <small>*Estan sujetos a aprobación, tienes que esperar a ser validados por el dministrador*</small></p>
 </div>
 <div class="form-container">
     <form:form method="post" action="chooseCourses.html" modelAttribute="usuario">
@@ -69,9 +71,12 @@
                 </ul>
             </div>
         </c:forEach>
-        <div class="k-form-buttons">
-            <input class="k-secundary k-button" type="submit" value="Enviar">
-        </div>
+    
+             <div class="k-form-buttons" >
+  
+            <input class="k-secundary k-button button-submit"  type="submit" value="Enviar">
+             </div>   
+        
     </form:form>
 </div>
 </body>
